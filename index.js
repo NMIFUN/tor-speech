@@ -104,7 +104,7 @@ const createRequest = async (path = null, debug = false, isExit = false) => {
       langCode: langCodes.russian
     }) =>
       new Promise((response, reject) =>
-        tor.get(`https://tts.voicetech.yandex.net/tts?text=${encodeURIComponent(text)}&lang=${langCode.yandex}&format=mp3`, {
+        tor.get(`https://tts.voicetech.yandex.net/tts?text=${encodeURIComponent(text)}&lang=${langCode.yandex}&format=${format}&speaker=${speaker}&quality=hi`, {
           responseType: 'arraybuffer'
         }).then(({ data }) =>
           response('data:audio/wav;base64,' + Buffer.from(data, 'binary').toString('base64'))
