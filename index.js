@@ -100,15 +100,17 @@ const createRequest = async (path = null, debug = false, isExit = false) => {
       text = 'test tor-speech module',
       langCode = langCodes.russian,
       format = 'wav',
-      speaker = 'jane'
+      speaker = 'jane',
+      speed = 1
     } = {
       text: 'test tor-speech module',
       langCode: langCodes.russian,
       format: 'wav',
-      speaker: 'jane'
+      speaker: 'jane',
+      speed: 1
     }) =>
       new Promise((response, reject) =>
-        tor.get(`https://tts.voicetech.yandex.net/tts?text=${encodeURIComponent(text)}&lang=${langCode.yandex}&format=mp3&speaker=${speaker}&quality=hi`, {
+        tor.get(`https://tts.voicetech.yandex.net/tts?text=${encodeURIComponent(text)}&lang=${langCode.yandex}&format=mp3&speaker=${speaker}&quality=hi&speed=${speed}`, {
           responseType: 'arraybuffer'
         }).then(({ data }) => {
           console.log(data)
